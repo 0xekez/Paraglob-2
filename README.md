@@ -9,7 +9,7 @@ fog -> 2
 cat -> 3
 ```
 
-Calling `myGlob.getPattern("*og");` would yield a std::vector containing `[1, 2]`.
+Calling `myGlob.getPattern("*og");` would yield a `std::vector` containing `[1, 2]`.
 
 This is not at all close to being done yet. <b>TODO</b> still:
 
