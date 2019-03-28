@@ -7,6 +7,7 @@
 #include <string.h>
 #include <errno.h>
 #include <assert.h>
+#include <sys/resource.h>
 
 #include "paraglob.h"
 

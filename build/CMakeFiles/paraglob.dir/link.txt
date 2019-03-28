@@ -1,0 +1,1 @@
+/usr/bin/cc -g  -rdynamic CMakeFiles/paraglob.dir/driver.c.o CMakeFiles/paraglob.dir/paraglob.c.o CMakeFiles/paraglob.dir/multifast-ac/ahocorasick.c.o CMakeFiles/paraglob.dir/multifast-ac/node.c.o  -o paraglob 

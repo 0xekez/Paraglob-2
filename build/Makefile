@@ -51,7 +51,7 @@ EQUALS = =
 CMAKE_SOURCE_DIR = /home/zekemedley/Desktop/corelight/paraglob/paraglob
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/zekemedley/Desktop/corelight/paraglob/paraglob
+CMAKE_BINARY_DIR = /home/zekemedley/Desktop/corelight/paraglob/paraglob/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/zekemedley/Desktop/corelight/paraglob/paraglob/CMakeFiles /home/zekemedley/Desktop/corelight/paraglob/paraglob/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zekemedley/Desktop/corelight/paraglob/paraglob/build/CMakeFiles /home/zekemedley/Desktop/corelight/paraglob/paraglob/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/zekemedley/Desktop/corelight/paraglob/paraglob/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zekemedley/Desktop/corelight/paraglob/paraglob/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
