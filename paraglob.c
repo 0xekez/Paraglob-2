@@ -441,6 +441,9 @@ uint64_t paraglob_match(paraglob_t pg, uint64_t len, const char* needle)
     set_for_each(pattern, pg->matching_patterns, p)
         _verify_match(pg, p);
 
+    set_for_each(pattern, pg->matching_patterns, p)
+        _safe_print(pg->debug, p->len, p->data);
+
     return pg->matches;
 }
 

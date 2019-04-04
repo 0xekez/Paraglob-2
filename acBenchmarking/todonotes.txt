@@ -1,9 +1,0 @@
-notes/todo 3.28.19:
-  1. below is link to the github repo that I found what is hopefully a nice AC
-  implementation
-  2. need to test that against curent implementation being Used
-  3. once tested and I pick a good one, we are booling. Then just need to write
-  into zeek language and do blog post etc.
-
-
-https://github.com/threatstream/snort/blob/master/src/sfutil/bnfa_search.c
