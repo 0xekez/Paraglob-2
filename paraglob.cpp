@@ -1,26 +1,43 @@
 #include "paraglob.h"
+#include <iostream>
 
 Paraglob::Paraglob(std::vector<std::string> &patterns): Paraglob() {
   for (std::string pattern : patterns) {
     this->add(pattern);
   }
+  this->compile();
 }
 
 void Paraglob::add(std::string pattern) {
   // Get the meta words
-  std::vector<std::string> meta_words = this->get_meta_words(pattern);
-  // Associate them with their patterns & add them to our AC
-  for (std::string word : meta_words) {
-    this->meta_to_pattern_words[word] = pattern;
-    this->my_ac.insert(word);
+  std::vector<std::string> m_words = get_meta_words(pattern);
+
+  // Put them away
+  for (std::string meta_word : m_words) {
+    AhoCorasickPlus::EnumReturnStatus status;
+    AhoCorasickPlus::PatternId patId = this->meta_words.size();
+
+    status = this->my_ac.addPattern(meta_word, patId);
+    if (status != AhoCorasickPlus::RETURNSTATUS_SUCCESS && status != AhoCorasickPlus::RETURNSTATUS_DUPLICATE_PATTERN) {
+      std::cout << "Failed to add: " << meta_word << std::endl;
+    } else {
+      this->meta_words.push_back(meta_word);
+      this->meta_to_pattern_words[meta_word] = pattern;
+    }
   }
 }
 
+void Paraglob::compile() {
+  this->my_ac.finalize();
+}
+
 std::vector<std::string> Paraglob::get(std::string text) {
-  // Narrow down to only the words which contain meta words
+  // Narrow to the meta-word matches
+  AhoCorasickPlus::Match aMatch;
+  this->my_ac.search(text, false);
   std::vector<std::string> meta_matches;
-  for (auto result : this->my_ac.parse_text(text)) {
-    meta_matches.push_back(result.get_keyword());
+  while (this->my_ac.findNext(aMatch)) {
+    meta_matches.push_back(this->meta_words.at(aMatch.id));
   }
 
   // Check against their respective patterns
@@ -34,8 +51,7 @@ std::vector<std::string> Paraglob::get(std::string text) {
       successes.push_back(pattern);
     }
   }
-
-  return successes;
+return successes;
 }
 
 std::vector<std::string> Paraglob::get_meta_words(std::string pattern) {

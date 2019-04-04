@@ -2,11 +2,11 @@
 
 #include <iostream>
 
-namespace ac = aho_corasick;
-using trie = ac::trie;
+// namespace ac = aho_corasick;
+// using trie = ac::trie;
 
 int main() {
-	std::vector<std::string> init_vec = {"*og", "do*", "cat", "fish"};
+	std::vector<std::string> init_vec = {"*og", "do*", "cat", "plant"};
 	Paraglob my_glob(init_vec);
 
 	for (std::string a : my_glob.get("dog")) {

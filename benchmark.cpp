@@ -97,6 +97,7 @@ void benchmark(const char * a, const char * b, const char * c) {
   for (std::string p : patterns) {
     myGlob.add(p);
   }
+  myGlob.compile();
 
   auto start = std::chrono::high_resolution_clock::now();
 
