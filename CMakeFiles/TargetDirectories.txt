@@ -1,3 +1,0 @@
-/home/zekemedley/Desktop/corelight/paraglob/paraglob/CMakeFiles/rebuild_cache.dir
-/home/zekemedley/Desktop/corelight/paraglob/paraglob/CMakeFiles/paraglob.dir
-/home/zekemedley/Desktop/corelight/paraglob/paraglob/CMakeFiles/edit_cache.dir
