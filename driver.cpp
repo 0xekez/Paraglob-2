@@ -1,4 +1,5 @@
 #include "paraglob.h"
+
 #include <iostream>
 
 namespace ac = aho_corasick;
