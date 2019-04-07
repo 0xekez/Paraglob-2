@@ -18,7 +18,8 @@ void Paraglob::add(std::string pattern) {
     AhoCorasickPlus::PatternId patId = this->meta_words.size();
 
     status = this->my_ac.addPattern(meta_word, patId);
-    if (status != AhoCorasickPlus::RETURNSTATUS_SUCCESS && status != AhoCorasickPlus::RETURNSTATUS_DUPLICATE_PATTERN) {
+    if (status != AhoCorasickPlus::RETURNSTATUS_SUCCESS &&
+      status != AhoCorasickPlus::RETURNSTATUS_DUPLICATE_PATTERN) {
       std::cout << "Failed to add: " << meta_word << std::endl;
     } else {
       this->meta_words.push_back(meta_word);

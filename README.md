@@ -1,113 +1,48 @@
 # Paraglob 2
-A (hopefully) very fast way to get all values associated with keys that match a glob in a dictionary-like structure.
+#### A fairly quick data structure for matching a string against a large list of patterns.
 
-For example, given a map with the associations:
+For example, given a list of patterns
+```
+{*og, do*, ca*, plant}
+```
+and an input string `dog`, paraglob will return
+```
+{*og, do*}
+```
+## How it works
+For any pattern, there exist a set of sub-strings that a string must contain in
+order for it to have any hope of matching against that pattern. We call these
+meta-words. Here are some examples:
 
 ```
-dog -> 1
-fog -> 2
-cat -> 3
+*og       -> |og|
+dog*fish  -> |og| |fish|
 ```
 
-Calling `myGlob.getPattern("*og");` would yield a `std::vector` containing `[1, 2]`.
+When a pattern is added to a Paraglob the pattern is stored and is split into
+its meta-words. Those meta words are then added to an Aho-Corasick data
+structure that can be found in `multifast-ac`.
 
-This is not at all close to being done yet. <b>TODO</b> still:
+When Paraglob is given a query, it first gets all the meta-words contained in the
+query using `multifast-ac` then it builds a set of all patterns associated with
+those meta-words and runs `fnmatch` on the input string and those patterns and
+returns a vector of the ones that match.
 
-  1. Migrate current implementation to C++11/17 using more `std::` features.
-  2. Run speed tests.
-  3. Integrate into Zeek scripting language.
-  
-## Pre-optimization flame graph (the starting point)
-<img src="./paragraph.svg">
+## How to use it
+Running `make` in its directory will compile `paraglob.out`. This is a small
+benchmarking script that takes three parameters: the number of patterns to
+generate, the number of queries to perform, and a third one that currently does
+nothing. The third parameter exists because the original Paraglob took it, and
+later it might be worthwhile to do the same thing with it.
 
-## Some performance notes on the pervious set.h and vector.h data structures
-```
-output from set speed test:
+As an example, running `paraglob.out 10000 50 50` will add 10,000 items, perform
+50 queries on them, and then return the results.
 
-testing set.h 
-add test..
---------
-time for 0 items:
-Elapsed time: 5.9748e-05 s
---------
-time for 20000 items:
-Elapsed time: 8.79978 s
---------
-time for 40000 items:
-Elapsed time: 35.7484 s
---------
-time for 60000 items:
-Elapsed time: 81.1556 s
---------
-time for 80000 items:
-Elapsed time: 145.177 s
-********
-TOTAL TIME: Elapsed time: 226.998 s
-testing set
-add test..
---------
-time for 0 items:
-Elapsed time: 8.853e-06 s
---------
-time for 20000 items:
-Elapsed time: 0.0231835 s
---------
-time for 40000 items:
-Elapsed time: 0.052002 s
---------
-time for 60000 items:
-Elapsed time: 0.0847385 s
---------
-time for 80000 items:
-Elapsed time: 0.11792 s
-********
-TOTAL TIME: Elapsed time: 0.150915 s
+## Open issues
+Presently, for large amounts of patterns, building Paraglob is slow. This is
+because of the time required to build the Aho-Corasick structure. It's likely
+worthwhile to explore this more, and explore some alternate implementations.
 
-for inserting 100,000 items std::set is 1504 times faster than the set
-were currently using. I'm not even going to bother testing this with
-the other operations becasue set.h uses a linear search to look for
-items when doing contains/get operations as well.
+Here is a flame graph of Paraglob running the example command from above:
 
-
-testing vector.h 
-add test..
---------
-time for 0 items:
-Elapsed time: 5.6131e-05 s
---------
-time for 20000 items:
-Elapsed time: 0.0092888 s
---------
-time for 40000 items:
-Elapsed time: 0.0183762 s
---------
-time for 60000 items:
-Elapsed time: 0.0263445 s
---------
-time for 80000 items:
-Elapsed time: 0.0346832 s
-********
-TOTAL TIME: Elapsed time: 0.0422714 s
-testing std::vector
-add test..
---------
-time for 0 items:
-Elapsed time: 7.694e-06 s
---------
-time for 20000 items:
-Elapsed time: 0.00743331 s
---------
-time for 40000 items:
-Elapsed time: 0.0152959 s
---------
-time for 60000 items:
-Elapsed time: 0.0226912 s
---------
-time for 80000 items:
-Elapsed time: 0.0314793 s
-********
-TOTAL TIME: Elapsed time: 0.0378254 s
-
-the vector Robin had been using is bascially as fast as std::vector.
-I'll use std::vector in my implementation, but just for clarity.
-```
+<img src="./flameGraphs/paraglob2_1.svg">

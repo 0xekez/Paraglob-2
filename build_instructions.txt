@@ -15,4 +15,4 @@ to make the bencher:
 g++ -o benchmark.o -c benchmark.cpp -I./multifast-ac/ahocorasick -Wall
 g++ -o AhoCorasickPlus.o -c AhoCorasickPlus.cpp -I./multifast-ac/ahocorasick -Wall
 g++ -o paraglob.o -c paraglob.cpp
-g++ -o benchmark benchmark.o paraglob.o AhoCorasickPlus.o -lahocorasick -L./multifast-ac/ahocorasick/build
+g++ -o benchmark2 benchmark.o paraglob.o AhoCorasickPlus.o -lahocorasick -L./multifast-ac/ahocorasick/build
