@@ -47,4 +47,4 @@ implementations.
 
 Here is a flame graph of Paraglob running the example command from above:
 
-<img src="./flameGraphs/paraglob2_1.svg">
+<img src="./flameGraphs/paraglobv2_1.svg">
