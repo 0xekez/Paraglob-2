@@ -55,20 +55,42 @@ std::vector<std::string> Paraglob::get(std::string text) {
 return successes;
 }
 
+// Returns a list of strings split up on '[' ']' pairs
+std::vector<std::string> split_on_brackets(std::string in) {
+  std::vector<std::string> out;
+  size_t pos;
+  size_t prev = 0;
+  while ((pos = in.find_first_of('[', prev)) != std::string::npos) {
+  size_t end_bracket = in.find_first_of(']', pos);
+    if (end_bracket != std::string::npos) {
+      out.push_back(in.substr(prev, pos-prev));
+      prev = end_bracket + 1;
+    } else {
+      break;
+    }
+  }
+  // There are no more opening/ closing brackets
+  // Append the rest of the string
+  out.push_back(in.substr(prev, in.length()-prev));
+  return out;
+}
+
+
 std::vector<std::string> Paraglob::get_meta_words(std::string pattern) {
   std::vector<std::string> meta_words;
-  // Split the pattern
-  // @source: https://stackoverflow.com/a/7621814
-  std::size_t prev = 0, pos;
-  while ((pos = pattern.find_first_of(this->supported_patterns, prev)) !=
-  std::string::npos) {
-    if (pos > prev) {
-      meta_words.push_back(pattern.substr(prev, pos-prev));
+  // Split the pattern by brackets
+  for (std::string word : split_on_brackets(pattern)) {
+    // Parse each bracket section
+    std::size_t prev = 0, pos;
+    while ((pos = word.find_first_of("*?", prev)) != std::string::npos) {
+      if (pos > prev) {
+        meta_words.push_back(word.substr(prev, pos-prev));
+      }
+      prev = pos+1;
     }
-    prev = pos+1;
-  }
-  if (prev < pattern.length()) {
-    meta_words.push_back(pattern.substr(prev, std::string::npos));
+    if (prev < word.length()) {
+      meta_words.push_back(word.substr(prev, std::string::npos));
+    }
   }
   return meta_words;
 }

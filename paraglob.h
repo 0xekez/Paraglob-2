@@ -18,7 +18,6 @@
 
 class Paraglob {
 private:
-  std::string supported_patterns = "*?";
   // trie my_ac;
   AhoCorasickPlus my_ac;
   std::unordered_map<std::string, std::string> meta_to_pattern_words;

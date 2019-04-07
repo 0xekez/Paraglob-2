@@ -93,11 +93,14 @@ void benchmark(const char * a, const char * b, const char * c) {
   }
 
   std::cout << "creating paraglob \n";
+  auto build_start = std::chrono::high_resolution_clock::now();
   Paraglob myGlob;
   for (std::string p : patterns) {
     myGlob.add(p);
   }
   myGlob.compile();
+  auto build_finish = std::chrono::high_resolution_clock::now();
+  std::chrono::duration<double> build_time = build_finish - build_start;
 
   auto start = std::chrono::high_resolution_clock::now();
 
@@ -108,7 +111,8 @@ void benchmark(const char * a, const char * b, const char * c) {
 
   auto finish = std::chrono::high_resolution_clock::now();
   std::chrono::duration<double> elapsed = finish - start;
-  std::cout << "Elapsed time: " << elapsed.count() << " s\n";
+  std::cout << "Build time: " << build_time.count() << "s\n";
+  std::cout << "Search time: " << elapsed.count() << " s\n";
   std::cout << "Queries/second: " << num_queries/elapsed.count() << "\n";
 }
 
