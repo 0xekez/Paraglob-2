@@ -24,9 +24,9 @@ its meta-words. Those meta words are then added to an Aho-Corasick data
 structure that can be found in `multifast-ac`.
 
 When Paraglob is given a query, it first gets the meta-words contained in the
-query using `multifast-ac` then it builds a set of all patterns associated with
-those meta-words and runs `fnmatch` on the input string and those patterns and
-returns a vector of the ones that match.
+query using `multifast-ac`. Then, it builds a set of all patterns associated with
+those meta-words and runs `fnmatch` on the query and those patterns. It finally
+returns a vector of all the patterns that match.
 
 ## How to use it
 Running `make` in its directory will compile `paraglob.out`. This is a small
