@@ -3,7 +3,7 @@ BUILD_DIRECTORY := build/
 LIB_TARGET := $(BUILD_DIRECTORY)lib$(LIBNAME).a
 HEADER_FILES := $(wildcard *.h)
 OBJECT_FILES := $(addprefix $(BUILD_DIRECTORY),$(patsubst %.c,%.o,$(wildcard *.c)))
-CFLAGS := -Wall
+CFLAGS := -Wall -O2
 COMPILER := cc
 AR := ar -cvq
 .PHONY : clean
