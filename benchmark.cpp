@@ -1,5 +1,6 @@
 #include <iostream>
-#include <bits/stdc++.h>
+//#include <bits/stdc++.h>
+#include <cstring>
 #include <chrono>
 
 #include "paraglob.h"
