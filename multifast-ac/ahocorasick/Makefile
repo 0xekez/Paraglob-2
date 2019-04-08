@@ -5,13 +5,19 @@ HEADER_FILES := $(wildcard *.h)
 OBJECT_FILES := $(addprefix $(BUILD_DIRECTORY),$(patsubst %.c,%.o,$(wildcard *.c)))
 CFLAGS := -Wall
 COMPILER := cc
-
+AR := ar -cvq
 .PHONY : clean
+
+# On Mac need to create the lib using a different command
+UNAME := $(shell uname)
+ifeq ($(UNAME), Darwin)
+AR := libtool -static -o
+endif
 
 all: $(LIB_TARGET)
 
 $(LIB_TARGET): $(BUILD_DIRECTORY) $(OBJECT_FILES)
-	ar -cvq $(LIB_TARGET) $(OBJECT_FILES)
+	$(AR) $(LIB_TARGET) $(OBJECT_FILES)
 
 $(BUILD_DIRECTORY)%.o: %.c $(HEADER_FILES)
 	$(COMPILER) -o $@ -c $< $(CFLAGS)
