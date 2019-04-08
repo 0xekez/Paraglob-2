@@ -56,7 +56,7 @@ return successes;
 }
 
 // Returns a list of strings split up on '[' ']' pairs
-std::vector<std::string> split_on_brackets(std::string in) {
+std::vector<std::string> Paraglob::split_on_brackets(std::string in) {
   std::vector<std::string> out;
   size_t pos;
   size_t prev = 0;

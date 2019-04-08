@@ -34,6 +34,7 @@ private:
   cat       ->  [cat]
   */
   std::vector<std::string> get_meta_words(std::string pattern);
+  std::vector<std::string> split_on_brackets(std::string in);
 public:
   Paraglob() = default;
   // Initialize a paraglob from a vector of patterns
