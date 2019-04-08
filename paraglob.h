@@ -13,16 +13,12 @@
 #include <cstddef>      // std::size_t
 #include <fnmatch.h>
 
-// namespace ac = aho_corasick;
-// using trie = ac::trie;
 
 class Paraglob {
 private:
-  // trie my_ac;
   AhoCorasickPlus my_ac;
   std::unordered_map<std::string, std::string> meta_to_pattern_words;
   std::vector<std::string> meta_words;
-  long unsigned int n_meta_words = 0;
   /*
   Get a vector of the meta-words in the pattern.
   Meta-words are strings that must be inside a string in order for
