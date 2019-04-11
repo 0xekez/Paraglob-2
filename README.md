@@ -16,7 +16,7 @@ meta-words. Here are some examples:
 
 ```
 *og       -> |og|
-dog*fish  -> |og| |fish|
+dog*fish  -> |dog| |fish|
 ```
 
 When a pattern is added to a Paraglob the pattern is stored and is split into
