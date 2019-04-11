@@ -19,10 +19,14 @@ $ make
 HOW TO USE
 ----------
 
-See the example folder for detailed explanation of using the library.
-
-You can also find the same guides in the mutifast's website:
+You can guides in the mutifast's website:
     http://multifast.sourceforge.net/
 
 It could be helpful to look at the implementation files: 
 actypes.h and ahocorasick.h
+
+
+AUTHOR
+------
+
+Kamiar Kanani	<kamiar.kanani@gmail.com>

@@ -126,14 +126,14 @@ install/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/zekemedley/Desktop/corelight/paraglob/Paraglob-2 && $(CMAKE_COMMAND) -E cmake_progress_start /home/zekemedley/Desktop/corelight/paraglob/Paraglob-2/CMakeFiles /home/zekemedley/Desktop/corelight/paraglob/Paraglob-2/multifast-ac/ahocorasick/CMakeFiles/progress.marks
-	cd /home/zekemedley/Desktop/corelight/paraglob/Paraglob-2 && $(MAKE) -f CMakeFiles/Makefile2 multifast-ac/ahocorasick/all
+	cd /home/zekemedley/Desktop/corelight/paraglob/Paraglob-2 && $(CMAKE_COMMAND) -E cmake_progress_start /home/zekemedley/Desktop/corelight/paraglob/Paraglob-2/CMakeFiles /home/zekemedley/Desktop/corelight/paraglob/Paraglob-2/ahocorasick/CMakeFiles/progress.marks
+	cd /home/zekemedley/Desktop/corelight/paraglob/Paraglob-2 && $(MAKE) -f CMakeFiles/Makefile2 ahocorasick/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/zekemedley/Desktop/corelight/paraglob/Paraglob-2/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/zekemedley/Desktop/corelight/paraglob/Paraglob-2 && $(MAKE) -f CMakeFiles/Makefile2 multifast-ac/ahocorasick/clean
+	cd /home/zekemedley/Desktop/corelight/paraglob/Paraglob-2 && $(MAKE) -f CMakeFiles/Makefile2 ahocorasick/clean
 .PHONY : clean
 
 # The main clean target
@@ -143,12 +143,12 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/zekemedley/Desktop/corelight/paraglob/Paraglob-2 && $(MAKE) -f CMakeFiles/Makefile2 multifast-ac/ahocorasick/preinstall
+	cd /home/zekemedley/Desktop/corelight/paraglob/Paraglob-2 && $(MAKE) -f CMakeFiles/Makefile2 ahocorasick/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/zekemedley/Desktop/corelight/paraglob/Paraglob-2 && $(MAKE) -f CMakeFiles/Makefile2 multifast-ac/ahocorasick/preinstall
+	cd /home/zekemedley/Desktop/corelight/paraglob/Paraglob-2 && $(MAKE) -f CMakeFiles/Makefile2 ahocorasick/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
@@ -157,18 +157,18 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-multifast-ac/ahocorasick/CMakeFiles/ahocorasick.dir/rule:
-	cd /home/zekemedley/Desktop/corelight/paraglob/Paraglob-2 && $(MAKE) -f CMakeFiles/Makefile2 multifast-ac/ahocorasick/CMakeFiles/ahocorasick.dir/rule
-.PHONY : multifast-ac/ahocorasick/CMakeFiles/ahocorasick.dir/rule
+ahocorasick/CMakeFiles/ahocorasick.dir/rule:
+	cd /home/zekemedley/Desktop/corelight/paraglob/Paraglob-2 && $(MAKE) -f CMakeFiles/Makefile2 ahocorasick/CMakeFiles/ahocorasick.dir/rule
+.PHONY : ahocorasick/CMakeFiles/ahocorasick.dir/rule
 
 # Convenience name for target.
-ahocorasick: multifast-ac/ahocorasick/CMakeFiles/ahocorasick.dir/rule
+ahocorasick: ahocorasick/CMakeFiles/ahocorasick.dir/rule
 
 .PHONY : ahocorasick
 
 # fast build rule for target.
 ahocorasick/fast:
-	cd /home/zekemedley/Desktop/corelight/paraglob/Paraglob-2 && $(MAKE) -f multifast-ac/ahocorasick/CMakeFiles/ahocorasick.dir/build.make multifast-ac/ahocorasick/CMakeFiles/ahocorasick.dir/build
+	cd /home/zekemedley/Desktop/corelight/paraglob/Paraglob-2 && $(MAKE) -f ahocorasick/CMakeFiles/ahocorasick.dir/build.make ahocorasick/CMakeFiles/ahocorasick.dir/build
 .PHONY : ahocorasick/fast
 
 ahocorasick.o: ahocorasick.c.o
@@ -177,7 +177,7 @@ ahocorasick.o: ahocorasick.c.o
 
 # target to build an object file
 ahocorasick.c.o:
-	cd /home/zekemedley/Desktop/corelight/paraglob/Paraglob-2 && $(MAKE) -f multifast-ac/ahocorasick/CMakeFiles/ahocorasick.dir/build.make multifast-ac/ahocorasick/CMakeFiles/ahocorasick.dir/ahocorasick.c.o
+	cd /home/zekemedley/Desktop/corelight/paraglob/Paraglob-2 && $(MAKE) -f ahocorasick/CMakeFiles/ahocorasick.dir/build.make ahocorasick/CMakeFiles/ahocorasick.dir/ahocorasick.c.o
 .PHONY : ahocorasick.c.o
 
 ahocorasick.i: ahocorasick.c.i
@@ -186,7 +186,7 @@ ahocorasick.i: ahocorasick.c.i
 
 # target to preprocess a source file
 ahocorasick.c.i:
-	cd /home/zekemedley/Desktop/corelight/paraglob/Paraglob-2 && $(MAKE) -f multifast-ac/ahocorasick/CMakeFiles/ahocorasick.dir/build.make multifast-ac/ahocorasick/CMakeFiles/ahocorasick.dir/ahocorasick.c.i
+	cd /home/zekemedley/Desktop/corelight/paraglob/Paraglob-2 && $(MAKE) -f ahocorasick/CMakeFiles/ahocorasick.dir/build.make ahocorasick/CMakeFiles/ahocorasick.dir/ahocorasick.c.i
 .PHONY : ahocorasick.c.i
 
 ahocorasick.s: ahocorasick.c.s
@@ -195,7 +195,7 @@ ahocorasick.s: ahocorasick.c.s
 
 # target to generate assembly for a file
 ahocorasick.c.s:
-	cd /home/zekemedley/Desktop/corelight/paraglob/Paraglob-2 && $(MAKE) -f multifast-ac/ahocorasick/CMakeFiles/ahocorasick.dir/build.make multifast-ac/ahocorasick/CMakeFiles/ahocorasick.dir/ahocorasick.c.s
+	cd /home/zekemedley/Desktop/corelight/paraglob/Paraglob-2 && $(MAKE) -f ahocorasick/CMakeFiles/ahocorasick.dir/build.make ahocorasick/CMakeFiles/ahocorasick.dir/ahocorasick.c.s
 .PHONY : ahocorasick.c.s
 
 mpool.o: mpool.c.o
@@ -204,7 +204,7 @@ mpool.o: mpool.c.o
 
 # target to build an object file
 mpool.c.o:
-	cd /home/zekemedley/Desktop/corelight/paraglob/Paraglob-2 && $(MAKE) -f multifast-ac/ahocorasick/CMakeFiles/ahocorasick.dir/build.make multifast-ac/ahocorasick/CMakeFiles/ahocorasick.dir/mpool.c.o
+	cd /home/zekemedley/Desktop/corelight/paraglob/Paraglob-2 && $(MAKE) -f ahocorasick/CMakeFiles/ahocorasick.dir/build.make ahocorasick/CMakeFiles/ahocorasick.dir/mpool.c.o
 .PHONY : mpool.c.o
 
 mpool.i: mpool.c.i
@@ -213,7 +213,7 @@ mpool.i: mpool.c.i
 
 # target to preprocess a source file
 mpool.c.i:
-	cd /home/zekemedley/Desktop/corelight/paraglob/Paraglob-2 && $(MAKE) -f multifast-ac/ahocorasick/CMakeFiles/ahocorasick.dir/build.make multifast-ac/ahocorasick/CMakeFiles/ahocorasick.dir/mpool.c.i
+	cd /home/zekemedley/Desktop/corelight/paraglob/Paraglob-2 && $(MAKE) -f ahocorasick/CMakeFiles/ahocorasick.dir/build.make ahocorasick/CMakeFiles/ahocorasick.dir/mpool.c.i
 .PHONY : mpool.c.i
 
 mpool.s: mpool.c.s
@@ -222,7 +222,7 @@ mpool.s: mpool.c.s
 
 # target to generate assembly for a file
 mpool.c.s:
-	cd /home/zekemedley/Desktop/corelight/paraglob/Paraglob-2 && $(MAKE) -f multifast-ac/ahocorasick/CMakeFiles/ahocorasick.dir/build.make multifast-ac/ahocorasick/CMakeFiles/ahocorasick.dir/mpool.c.s
+	cd /home/zekemedley/Desktop/corelight/paraglob/Paraglob-2 && $(MAKE) -f ahocorasick/CMakeFiles/ahocorasick.dir/build.make ahocorasick/CMakeFiles/ahocorasick.dir/mpool.c.s
 .PHONY : mpool.c.s
 
 node.o: node.c.o
@@ -231,7 +231,7 @@ node.o: node.c.o
 
 # target to build an object file
 node.c.o:
-	cd /home/zekemedley/Desktop/corelight/paraglob/Paraglob-2 && $(MAKE) -f multifast-ac/ahocorasick/CMakeFiles/ahocorasick.dir/build.make multifast-ac/ahocorasick/CMakeFiles/ahocorasick.dir/node.c.o
+	cd /home/zekemedley/Desktop/corelight/paraglob/Paraglob-2 && $(MAKE) -f ahocorasick/CMakeFiles/ahocorasick.dir/build.make ahocorasick/CMakeFiles/ahocorasick.dir/node.c.o
 .PHONY : node.c.o
 
 node.i: node.c.i
@@ -240,7 +240,7 @@ node.i: node.c.i
 
 # target to preprocess a source file
 node.c.i:
-	cd /home/zekemedley/Desktop/corelight/paraglob/Paraglob-2 && $(MAKE) -f multifast-ac/ahocorasick/CMakeFiles/ahocorasick.dir/build.make multifast-ac/ahocorasick/CMakeFiles/ahocorasick.dir/node.c.i
+	cd /home/zekemedley/Desktop/corelight/paraglob/Paraglob-2 && $(MAKE) -f ahocorasick/CMakeFiles/ahocorasick.dir/build.make ahocorasick/CMakeFiles/ahocorasick.dir/node.c.i
 .PHONY : node.c.i
 
 node.s: node.c.s
@@ -249,7 +249,7 @@ node.s: node.c.s
 
 # target to generate assembly for a file
 node.c.s:
-	cd /home/zekemedley/Desktop/corelight/paraglob/Paraglob-2 && $(MAKE) -f multifast-ac/ahocorasick/CMakeFiles/ahocorasick.dir/build.make multifast-ac/ahocorasick/CMakeFiles/ahocorasick.dir/node.c.s
+	cd /home/zekemedley/Desktop/corelight/paraglob/Paraglob-2 && $(MAKE) -f ahocorasick/CMakeFiles/ahocorasick.dir/build.make ahocorasick/CMakeFiles/ahocorasick.dir/node.c.s
 .PHONY : node.c.s
 
 replace.o: replace.c.o
@@ -258,7 +258,7 @@ replace.o: replace.c.o
 
 # target to build an object file
 replace.c.o:
-	cd /home/zekemedley/Desktop/corelight/paraglob/Paraglob-2 && $(MAKE) -f multifast-ac/ahocorasick/CMakeFiles/ahocorasick.dir/build.make multifast-ac/ahocorasick/CMakeFiles/ahocorasick.dir/replace.c.o
+	cd /home/zekemedley/Desktop/corelight/paraglob/Paraglob-2 && $(MAKE) -f ahocorasick/CMakeFiles/ahocorasick.dir/build.make ahocorasick/CMakeFiles/ahocorasick.dir/replace.c.o
 .PHONY : replace.c.o
 
 replace.i: replace.c.i
@@ -267,7 +267,7 @@ replace.i: replace.c.i
 
 # target to preprocess a source file
 replace.c.i:
-	cd /home/zekemedley/Desktop/corelight/paraglob/Paraglob-2 && $(MAKE) -f multifast-ac/ahocorasick/CMakeFiles/ahocorasick.dir/build.make multifast-ac/ahocorasick/CMakeFiles/ahocorasick.dir/replace.c.i
+	cd /home/zekemedley/Desktop/corelight/paraglob/Paraglob-2 && $(MAKE) -f ahocorasick/CMakeFiles/ahocorasick.dir/build.make ahocorasick/CMakeFiles/ahocorasick.dir/replace.c.i
 .PHONY : replace.c.i
 
 replace.s: replace.c.s
@@ -276,7 +276,7 @@ replace.s: replace.c.s
 
 # target to generate assembly for a file
 replace.c.s:
-	cd /home/zekemedley/Desktop/corelight/paraglob/Paraglob-2 && $(MAKE) -f multifast-ac/ahocorasick/CMakeFiles/ahocorasick.dir/build.make multifast-ac/ahocorasick/CMakeFiles/ahocorasick.dir/replace.c.s
+	cd /home/zekemedley/Desktop/corelight/paraglob/Paraglob-2 && $(MAKE) -f ahocorasick/CMakeFiles/ahocorasick.dir/build.make ahocorasick/CMakeFiles/ahocorasick.dir/replace.c.s
 .PHONY : replace.c.s
 
 # Help Target

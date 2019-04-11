@@ -19,7 +19,7 @@
     along with multifast.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "multifast-ac/ahocorasick/ahocorasick.h"
+#include "ahocorasick/ahocorasick.h"
 
 #include "AhoCorasickPlus.h"
 

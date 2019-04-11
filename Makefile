@@ -179,7 +179,7 @@ ahocorasick: cmake_check_build_system
 
 # fast build rule for target.
 ahocorasick/fast:
-	$(MAKE) -f multifast-ac/ahocorasick/CMakeFiles/ahocorasick.dir/build.make multifast-ac/ahocorasick/CMakeFiles/ahocorasick.dir/build
+	$(MAKE) -f ahocorasick/CMakeFiles/ahocorasick.dir/build.make ahocorasick/CMakeFiles/ahocorasick.dir/build
 .PHONY : ahocorasick/fast
 
 AhoCorasickPlus.o: AhoCorasickPlus.cpp.o
