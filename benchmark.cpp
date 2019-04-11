@@ -3,7 +3,7 @@
 #include <cstring>
 #include <chrono>
 
-#include "paraglob.h"
+#include "benchmark.h"
 
 static const char* benchmark_pattern_words[] = {
     "aaaaaa", "bb", "cccccccccccccccc", "ddddd", "eeeeeeeee", "fffffffffffff", "gggg"
@@ -29,13 +29,18 @@ const char* random_word()
     return buffer;
 }
 
-void benchmark(const char * a, const char * b, const char * c) {
+double benchmark(char* a, char* b, char* c, bool silent) {
   srand(time(0));
   long num_patterns = atol(a);
   long num_queries = atol(b);
   long match_prob = atol(c);
 
-  std::cout << "creating workload \n";
+  if (!silent) {
+    std::cout << "creating workload:\n";
+    std::cout << "\t# patterns: " << num_patterns << "\n";
+    std::cout << "\t# queries: " << num_queries << "\n";
+    std::cout << "\t% matches: " << match_prob << "\n";
+  }
 
   // Create the patterns.
   std::string patterns[num_patterns];
@@ -93,7 +98,9 @@ void benchmark(const char * a, const char * b, const char * c) {
       queries[i] = std::string(strdup(buffer));
   }
 
-  std::cout << "creating paraglob \n";
+  if (!silent) {
+    std::cout << "creating paraglob \n";
+  }
   auto build_start = std::chrono::high_resolution_clock::now();
   Paraglob myGlob;
   for (std::string p : patterns) {
@@ -105,23 +112,21 @@ void benchmark(const char * a, const char * b, const char * c) {
 
   auto start = std::chrono::high_resolution_clock::now();
 
-  std::cout << "making queries \n";
+  if (!silent) {
+    std::cout << "making queries \n";
+  }
   for (std::string q : queries) {
     myGlob.get(q);
   }
 
   auto finish = std::chrono::high_resolution_clock::now();
   std::chrono::duration<double> elapsed = finish - start;
-  std::cout << "Build time: " << build_time.count() << "s\n";
-  std::cout << "Search time: " << elapsed.count() << " s\n";
-  std::cout << "Queries/second: " << num_queries/elapsed.count() << "\n";
-}
 
-int main(int argc, char *argv[]) {
-    if (argc != 4) {
-      std::cout << "bad number of command line args \n";
-      return -1;
-    }
-    benchmark(argv[1], argv[2], argv[3]);
-    return 0;
+  if (!silent) {
+    std::cout << "Build time: " << build_time.count() << "s\n";
+    std::cout << "Search time: " << elapsed.count() << " s\n";
+    std::cout << "Queries/second: " << num_queries/elapsed.count() << "\n";
+  }
+
+  return elapsed.count() + build_time.count();
 }

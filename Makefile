@@ -236,6 +236,33 @@ benchmark.cpp.s:
 	$(MAKE) -f CMakeFiles/paraglob.out.dir/build.make CMakeFiles/paraglob.out.dir/benchmark.cpp.s
 .PHONY : benchmark.cpp.s
 
+driver.o: driver.cpp.o
+
+.PHONY : driver.o
+
+# target to build an object file
+driver.cpp.o:
+	$(MAKE) -f CMakeFiles/paraglob.out.dir/build.make CMakeFiles/paraglob.out.dir/driver.cpp.o
+.PHONY : driver.cpp.o
+
+driver.i: driver.cpp.i
+
+.PHONY : driver.i
+
+# target to preprocess a source file
+driver.cpp.i:
+	$(MAKE) -f CMakeFiles/paraglob.out.dir/build.make CMakeFiles/paraglob.out.dir/driver.cpp.i
+.PHONY : driver.cpp.i
+
+driver.s: driver.cpp.s
+
+.PHONY : driver.s
+
+# target to generate assembly for a file
+driver.cpp.s:
+	$(MAKE) -f CMakeFiles/paraglob.out.dir/build.make CMakeFiles/paraglob.out.dir/driver.cpp.s
+.PHONY : driver.cpp.s
+
 paraglob.o: paraglob.cpp.o
 
 .PHONY : paraglob.o
@@ -283,6 +310,9 @@ help:
 	@echo "... benchmark.o"
 	@echo "... benchmark.i"
 	@echo "... benchmark.s"
+	@echo "... driver.o"
+	@echo "... driver.i"
+	@echo "... driver.s"
 	@echo "... paraglob.o"
 	@echo "... paraglob.i"
 	@echo "... paraglob.s"

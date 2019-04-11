@@ -5,9 +5,9 @@ project(paraglob)
 set(CMAKE_CXX_FLAGS "-Wall -O2")
 set(CMAKE_CXX_STANDARD 14)
 
-add_subdirectory(multifast-ac/ahocorasick)
+add_subdirectory(ahocorasick)
 
-set(SOURCES benchmark.cpp paraglob.cpp AhoCorasickPlus.cpp)
+set(SOURCES driver.cpp benchmark.cpp paraglob.cpp AhoCorasickPlus.cpp)
 add_executable(paraglob.out ${SOURCES})
 
 target_link_libraries(paraglob.out ahocorasick)
