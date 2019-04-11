@@ -4,11 +4,7 @@ LIB_TARGET := $(BUILD_DIRECTORY)lib$(LIBNAME).a
 HEADER_FILES := $(wildcard *.h)
 OBJECT_FILES := $(addprefix $(BUILD_DIRECTORY),$(patsubst %.c,%.o,$(wildcard *.c)))
 CFLAGS := -Wall -O2
-<<<<<<< HEAD
 COMPILER := gcc
-=======
-COMPILER := cc
->>>>>>> origin
 AR := ar -cvq
 .PHONY : clean
 
