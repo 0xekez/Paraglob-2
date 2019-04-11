@@ -1,7 +1,7 @@
 #include "paraglob.h"
 #include <iostream>
 
-Paraglob::Paraglob(std::vector<std::string> &patterns): Paraglob() {
+Paraglob::Paraglob(std::vector<std::string> patterns): Paraglob() {
   for (std::string pattern : patterns) {
     this->add(pattern);
   }
@@ -55,7 +55,7 @@ std::vector<std::string> Paraglob::get(std::string text) {
 return successes;
 }
 
-// Returns a list of strings split up on '[' ']' pairs
+// Returns a vector of strings split up on '[' ']' pairs
 std::vector<std::string> Paraglob::split_on_brackets(std::string in) {
   std::vector<std::string> out;
   size_t pos;

@@ -1,14 +1,10 @@
-# Makefile for Paraglob-2
-
-# *****************************************************
-# Variables to control Makefile operation
+# Makefile for paraglob
 
 CXX = g++
 # -O2 results in a decent speedup
 CXXFLAGS = -Wall -O2 -std=c++11
 
-# ****************************************************
-# Targets needed to bring the executable up to date
+all: paraglob.out clean
 
 paraglob.out: benchmark.o paraglob.o AhoCorasickPlus.o
 	$(CXX) $(CXXFLAGS) -o paraglob.out benchmark.o AhoCorasickPlus.o paraglob.o -lahocorasick -L./multifast-ac/ahocorasick/build
@@ -25,3 +21,5 @@ paraglob.o: paraglob.cpp paraglob.h AhoCorasickPlus.h
 subsystem:
 	$(MAKE) -C ./multifast-ac/ahocorasick
 
+clean:
+	rm benchmark.o AhoCorasickPlus.o paraglob.o

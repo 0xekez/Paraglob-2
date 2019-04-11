@@ -28,13 +28,14 @@ private:
   *dog      ->  [dog]
   fish*dog  ->  [fish, dog]
   cat       ->  [cat]
+  [fld]og   ->  [og]
   */
   std::vector<std::string> get_meta_words(std::string pattern);
   std::vector<std::string> split_on_brackets(std::string in);
 public:
   Paraglob() = default;
   // Initialize a paraglob from a vector of patterns
-  Paraglob(std::vector<std::string> &patterns);
+  Paraglob(std::vector<std::string> patterns);
   // Add a pattern to the paraglob
   void add(std::string pattern);
   // Compile the paraglob
