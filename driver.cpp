@@ -19,10 +19,11 @@ Benchmarking:
 	<time> -> optional. If provided, rather than printing detailed results,
 						prints 1 or 0 corresponding to rather or not the benchmark was
 						completed in under <time> seconds
+
+Note that this script is just for testing and as such if you give it bad
+arguments it will ungracefully break.
 */
 
-// We're basically assuming that the user here knows what they're doing
-// and won't pass anytihg bad in.
 int main(int argc, char* argv[]) {
 	double max_time = 0;
 	if (strcmp(argv[1], "-b") == 0) {

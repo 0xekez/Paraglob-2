@@ -1,0 +1,14 @@
+== File ===============================
+*
+cat
+dog?
+1
+== Diff ===============================
+--- /home/zekemedley/Desktop/corelight/paraglob/Paraglob-2/testing/Baseline/driver.empty_patterns/out	2019-04-11 17:17:37.435516502 -0700
++++ out	2019-04-11 17:36:58.218743290 -0700
+@@ -1 +1,4 @@
++*
++cat
++dog?
+ 1
+=======================================

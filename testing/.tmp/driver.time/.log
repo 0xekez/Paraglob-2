@@ -1,0 +1,2 @@
+paraglob.out -b 10000 20000 10 2 > out (expect success)
+btest-diff out (expect success)

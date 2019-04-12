@@ -11,7 +11,6 @@ Paraglob::Paraglob(std::vector<std::string> patterns): Paraglob() {
 void Paraglob::add(std::string pattern) {
   // Get the meta words
   std::vector<std::string> m_words = get_meta_words(pattern);
-
   // Put them away
   for (std::string meta_word : m_words) {
     AhoCorasickPlus::EnumReturnStatus status;
@@ -45,6 +44,9 @@ std::vector<std::string> Paraglob::get(std::string text) {
   std::set<std::string> patterns;
   for (std::string meta_word : meta_matches) {
     patterns.insert(this->meta_to_pattern_words.at(meta_word));
+  }
+  for (std::string pattern : this->single_wildcards) {
+    patterns.insert(pattern);
   }
   std::vector<std::string> successes;
   for (std::string pattern : patterns) {
@@ -91,6 +93,12 @@ std::vector<std::string> Paraglob::get_meta_words(std::string pattern) {
     if (prev < word.length()) {
       meta_words.push_back(word.substr(prev, std::string::npos));
     }
+  }
+  if (meta_words.size() == 0 && pattern != "") {
+    this->single_wildcards.push_back(pattern);
+  }
+  for (std::string s: meta_words) {
+    std::cout << s << "\n";
   }
   return meta_words;
 }

@@ -1,0 +1,2 @@
+paraglob.out -n dog "*" cat dog? > out (expect success)
+btest-diff out (expect success)

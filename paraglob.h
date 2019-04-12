@@ -17,8 +17,16 @@
 class Paraglob {
 private:
   AhoCorasickPlus my_ac;
+  // TODO: this does not work see note in cs notebook.
   std::unordered_map<std::string, std::string> meta_to_pattern_words;
   std::vector<std::string> meta_words;
+  /*
+  I make no claims about how frequently this will happen, but it is possible
+  that someone will want to put a pattern in a paraglob that has no meta words.
+  We can not add an empty string to the ac tree, so we keep them here. Probably
+  wont happen often so we initialize this to have size zero.
+  */
+  std::vector<std::string> single_wildcards = std::vector<std::string>(0);
   /*
   Get a vector of the meta-words in the pattern.
   Meta-words are strings that must be inside a string in order for

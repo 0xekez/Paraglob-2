@@ -1,0 +1,21 @@
+== File ===============================
+d
+g
+og
+d
+d
+g
+3
+== Diff ===============================
+--- /home/zekemedley/Desktop/corelight/paraglob/Paraglob-2/testing/Baseline/driver.basic_matches/out	2019-04-11 17:28:27.542873956 -0700
++++ out	2019-04-11 17:41:48.090803201 -0700
+@@ -1 +1,7 @@
+-4
++d
++g
++og
++d
++d
++g
++3
+=======================================
