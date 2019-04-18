@@ -18,7 +18,7 @@ class Paraglob {
 private:
   AhoCorasickPlus my_ac;
   // TODO: this does not work see note in cs notebook.
-  std::unordered_map<std::string, std::string> meta_to_pattern_words;
+  std::unordered_multimap<std::string, std::string> meta_to_pattern_words;
   std::vector<std::string> meta_words;
   /*
   I make no claims about how frequently this will happen, but it is possible

@@ -21,8 +21,10 @@ void Paraglob::add(std::string pattern) {
       status != AhoCorasickPlus::RETURNSTATUS_DUPLICATE_PATTERN) {
       std::cout << "Failed to add: " << meta_word << std::endl;
     } else {
-      this->meta_words.push_back(meta_word);
-      this->meta_to_pattern_words[meta_word] = pattern;
+      if (status != AhoCorasickPlus::RETURNSTATUS_DUPLICATE_PATTERN) {
+        this->meta_words.push_back(meta_word);
+      }
+      this->meta_to_pattern_words.insert(std::make_pair(meta_word, pattern));
     }
   }
 }
@@ -40,14 +42,19 @@ std::vector<std::string> Paraglob::get(std::string text) {
     meta_matches.push_back(this->meta_words.at(aMatch.id));
   }
 
-  // Check against their respective patterns
+  // Get patterns
   std::set<std::string> patterns;
-  for (std::string meta_word : meta_matches) {
-    patterns.insert(this->meta_to_pattern_words.at(meta_word));
-  }
   for (std::string pattern : this->single_wildcards) {
     patterns.insert(pattern);
   }
+  for (std::string meta_word : meta_matches) {
+    auto range = this->meta_to_pattern_words.equal_range(meta_word);
+    for (auto it = range.first; it != range.second; ++it) {
+      patterns.insert(it->second);
+    }
+  }
+
+  // Check patterns
   std::vector<std::string> successes;
   for (std::string pattern : patterns) {
     if (fnmatch(pattern.c_str(), text.c_str(), 0) == 0) {
@@ -96,9 +103,6 @@ std::vector<std::string> Paraglob::get_meta_words(std::string pattern) {
   }
   if (meta_words.size() == 0 && pattern != "") {
     this->single_wildcards.push_back(pattern);
-  }
-  for (std::string s: meta_words) {
-    std::cout << s << "\n";
   }
   return meta_words;
 }
