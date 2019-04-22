@@ -27,7 +27,7 @@ void Paraglob::add(std::string pattern) {
         this->meta_to_node_map.at(meta_word).addPattern(pattern);
       } else {
         this->meta_words.push_back(meta_word);
-        this->meta_to_node_map.insert({meta_word, ParaglobNode(meta_word, pattern)});
+        this->meta_to_node_map.emplace(meta_word, ParaglobNode(meta_word, pattern));
       }
     }
   }
@@ -48,11 +48,11 @@ std::vector<std::string> Paraglob::get(std::string text) {
 
   // Get patterns
   std::set<std::string> patterns;
-  for (std::string pattern : this->single_wildcards) {
-    patterns.insert(pattern);
-  }
   for (std::string meta_word : meta_matches) {
     patterns.merge(this->meta_to_node_map.at(meta_word).patterns);
+  }
+  for (std::string pattern : this->single_wildcards) {
+    patterns.insert(pattern);
   }
 
   // Check patterns
