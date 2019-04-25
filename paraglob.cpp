@@ -54,7 +54,7 @@ std::vector<std::string> Paraglob::get(std::string text) {
   for (std::string pattern : this->single_wildcards) {
     patterns.insert(pattern);
   }
-
+  std::cout << "checking " << patterns.size() << " patterns\n";
   // Check patterns
   std::vector<std::string> successes;
   for (std::string pattern : patterns) {
