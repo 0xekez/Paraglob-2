@@ -1,0 +1,2 @@
+/usr/bin/ar qc libahocorasick.a  CMakeFiles/ahocorasick.dir/ahocorasick.c.o CMakeFiles/ahocorasick.dir/node.c.o CMakeFiles/ahocorasick.dir/mpool.c.o CMakeFiles/ahocorasick.dir/replace.c.o
+/usr/bin/ranlib libahocorasick.a

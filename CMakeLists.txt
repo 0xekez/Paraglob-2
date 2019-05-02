@@ -7,10 +7,11 @@ set(CMAKE_CXX_STANDARD 17)
 
 add_subdirectory(ahocorasick)
 
-set(SOURCES driver.cpp benchmark.cpp paraglob.cpp AhoCorasickPlus.cpp paraglobNode.cpp)
-add_executable(paraglob.out ${SOURCES})
+set(SOURCES src/paraglob.cpp ahocorasick/AhoCorasickPlus.cpp )
 
-target_link_libraries(paraglob.out ahocorasick)
+add_library(paraglob STATIC ${SOURCES})
 
-install(TARGETS paraglob.out DESTINATION bin)
+target_link_libraries(paraglob ahocorasick)
+
+install(TARGETS paraglob DESTINATION lib)
 install(FILES ahocorasick.h DESTINATION include)
