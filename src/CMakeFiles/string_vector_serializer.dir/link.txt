@@ -1,0 +1,2 @@
+/usr/bin/ar qc libstring_vector_serializer.a  CMakeFiles/string_vector_serializer.dir/string_vector_serializer.cpp.o
+/usr/bin/ranlib libstring_vector_serializer.a

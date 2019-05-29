@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/zekemedley/Desktop/corelight/paraglob/ahocorasick/mpool.c
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+mpool.h
+/home/zekemedley/Desktop/corelight/paraglob/ahocorasick/mpool.h
+
+/home/zekemedley/Desktop/corelight/paraglob/ahocorasick/mpool.h
+

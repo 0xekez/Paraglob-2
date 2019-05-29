@@ -1,8 +1,4 @@
-#include "../src/paraglob.h"
-#include "benchmark.h"
-#include <iostream>
-#include <cstring>
-#include <vector>
+// See the file "COPYING" in the main distribution directory for copyright.
 
 /*
 A simple driver for testing paraglob's performance and functionality.
@@ -24,38 +20,69 @@ Note that this script is just for testing and as such if you give it bad
 arguments it will ungracefully break.
 */
 
-int main(/*int argc, char* argv[]*/) {
-	// double max_time = 0;
-	//
-	// if (strcmp(argv[1], "-b") == 0) {
-	// 	if (argc == 6) {
-	// 		// there is a time argument
-	// 		max_time = atof(argv[5]);
-	// 	}
-	//
-	// 	char* a = argv[2];
-	// 	char* b = argv[3];
-	// 	char* c = argv[4];
-	// 	double elapsed = benchmark(a, b, c, max_time);
-	//
-	// 	if (max_time > 0) {
-	// 		if (elapsed <= max_time) {
-	// 			std::cout << "Passed.\n";
-	// 		} else {
-	// 			std::cout << "Failed.\n";
-	// 		}
-	// 	}
-	// }
-	// else if (strcmp(argv[1], "-n") == 0) {
-	// 	std::vector<std::string> v;
-	// 	for (int i = 3 ; i < argc ; i++) {
-	// 		v.push_back(std::string(argv[i]));
-	// 	}
-	// 	paraglob::Paraglob p(v);
-	// 	std::cout << p.get(std::string(argv[2])).size() << "\n";
-	// }
-	// else {
-	// 		std::cout << "Unrecognized first param\n";
-	// }
-	makeGraphData();
+#include <iostream>
+#include <cstring>
+#include <vector>
+#include <fstream>
+
+#include <paraglob.h>
+#include "benchmark.h"
+
+int main(int argc, char* argv[]) {
+	double max_time = 0;
+
+	if (argc <= 1) {
+		std::cerr << "usage: " << argv[0] << " -n <text> <patterns>\n";
+		std::cerr << "       " <<
+			"Prints the number of patterns that match the text.\n";
+		std::cerr << "       " << argv[0] << " -b <a> <b> <c> <time>\n";
+		std::cerr << "       " <<
+			"Benchmark. a - n patterns. b - n queries. c - % matches.\n";
+		std::cerr << "       " << argv[0] << " -s <patterns>\n";
+		std::cerr << "       " <<
+			"Prints a a paraglob with **patterns** serialization\n";
+		exit(1);
+	}
+
+	if (strcmp(argv[1], "-b") == 0) {
+		if (argc == 6) {
+			// there is a time argument
+			max_time = atof(argv[5]);
+		}
+
+		char* a = argv[2];
+		char* b = argv[3];
+		char* c = argv[4];
+		double elapsed = benchmark(a, b, c, max_time);
+
+		if (max_time > 0) {
+			if (elapsed <= max_time) {
+				std::cout << "Passed.\n";
+			} else {
+				std::cout << "Failed.\n";
+			}
+		}
+	} else if (strcmp(argv[1], "-n") == 0) {
+		std::vector<std::string> v;
+		for (int i = 3 ; i < argc ; i++) {
+			v.push_back(std::string(argv[i]));
+		}
+		paraglob::Paraglob p(v);
+		std::cout << p.get(std::string(argv[2])).size() << "\n";
+	} else if (strcmp(argv[1], "-s") == 0) {
+		std::vector<std::string> v;
+		for (int i = 3 ; i < argc ; i++) {
+			v.push_back(std::string(argv[i]));
+		}
+		paraglob::Paraglob p(v);
+		paraglob::Paraglob sp(p.serialize());
+		if (p == sp) {
+			std::cout << "passed" << std::endl;
+		} else {
+			std::cout << "failed" << std::endl;
+		}
+	}
+	else {
+		std::cout << "Unrecognized first param\n";
+	}
 }

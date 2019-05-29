@@ -1,14 +1,7 @@
 /home/zekemedley/Desktop/corelight/paraglob/tools/CMakeFiles/install/strip.dir
 /home/zekemedley/Desktop/corelight/paraglob/tools/CMakeFiles/edit_cache.dir
-/home/zekemedley/Desktop/corelight/paraglob/tools/CMakeFiles/paraglob.tools.dir
+/home/zekemedley/Desktop/corelight/paraglob/tools/CMakeFiles/paraglob-test.dir
 /home/zekemedley/Desktop/corelight/paraglob/tools/CMakeFiles/rebuild_cache.dir
 /home/zekemedley/Desktop/corelight/paraglob/tools/CMakeFiles/list_install_components.dir
 /home/zekemedley/Desktop/corelight/paraglob/tools/CMakeFiles/install/local.dir
 /home/zekemedley/Desktop/corelight/paraglob/tools/CMakeFiles/install.dir
-/home/zekemedley/Desktop/corelight/paraglob/tools/build/CMakeFiles/install/strip.dir
-/home/zekemedley/Desktop/corelight/paraglob/tools/build/CMakeFiles/edit_cache.dir
-/home/zekemedley/Desktop/corelight/paraglob/tools/build/CMakeFiles/ahocorasick.dir
-/home/zekemedley/Desktop/corelight/paraglob/tools/build/CMakeFiles/rebuild_cache.dir
-/home/zekemedley/Desktop/corelight/paraglob/tools/build/CMakeFiles/list_install_components.dir
-/home/zekemedley/Desktop/corelight/paraglob/tools/build/CMakeFiles/install/local.dir
-/home/zekemedley/Desktop/corelight/paraglob/tools/build/CMakeFiles/install.dir

@@ -1,0 +1,2 @@
+/usr/bin/ar qc libparaglob.a  CMakeFiles/paraglob.dir/paraglob.cpp.o CMakeFiles/paraglob.dir/paraglob_serializer.cpp.o
+/usr/bin/ranlib libparaglob.a

@@ -89,7 +89,7 @@ void AhoCorasickPlus::search (const std::string &text, bool keep)
     ac_trie_settext (m_automata, m_acText, (int)keep);
 }
 
-std::vector<int> AhoCorasickPlus::findAll (std::string& text, bool keep)
+std::vector<int> AhoCorasickPlus::findAll (const std::string& text, bool keep)
 {
   this->search(text, keep);
 

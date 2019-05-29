@@ -64,7 +64,7 @@ public:
     void             finalize   ();
 
     void search   (const std::string &text, bool keep);
-    std::vector<int> findAll (std::string& text, bool keep);
+    std::vector<int> findAll (const std::string& text, bool keep);
 
 private:
     struct ac_trie      *m_automata;

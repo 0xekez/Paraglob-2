@@ -1,15 +1,7 @@
-# Builds an executable instead of a library for testing
-cmake_minimum_required (VERSION 3.14)
 
-set(CMAKE_CXX_FLAGS "-Wall -O2")
-set(CMAKE_CXX_STANDARD 17)
+set(SOURCES driver.cpp benchmark.cpp)
+add_executable(paraglob-test ${SOURCES})
 
-add_subdirectory(../ahocorasick build)
+target_link_libraries(paraglob-test paraglob)
 
-set(SOURCES driver.cpp benchmark.cpp ../src/paraglob.cpp ../ahocorasick/AhoCorasickPlus.cpp)
-add_executable(paraglob.tools ${SOURCES})
-
-target_link_libraries(paraglob.tools ahocorasick)
-
-install(TARGETS paraglob.tools DESTINATION bin)
-install(FILES ahocorasick.h DESTINATION include)
+install(TARGETS paraglob-test DESTINATION bin)

@@ -1,0 +1,1 @@
+/usr/bin/c++  -Wall -O2 -g -DNDEBUG  -rdynamic CMakeFiles/paraglob-test.dir/driver.cpp.o CMakeFiles/paraglob-test.dir/benchmark.cpp.o  -o paraglob-test ../src/libparaglob.a ../ahocorasick/libahocorasick.a 

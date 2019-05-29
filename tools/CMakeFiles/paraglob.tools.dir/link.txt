@@ -1,1 +1,0 @@
-/usr/bin/c++  -Wall -O2   CMakeFiles/paraglob.tools.dir/driver.cpp.o CMakeFiles/paraglob.tools.dir/benchmark.cpp.o CMakeFiles/paraglob.tools.dir/home/zekemedley/Desktop/corelight/paraglob/src/paraglob.cpp.o CMakeFiles/paraglob.tools.dir/home/zekemedley/Desktop/corelight/paraglob/ahocorasick/AhoCorasickPlus.cpp.o  -o paraglob.tools build/libahocorasick.a 

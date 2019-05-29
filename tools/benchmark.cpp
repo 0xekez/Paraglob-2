@@ -1,7 +1,4 @@
-#include <iostream>
-//#include <bits/stdc++.h>
-#include <cstring>
-#include <chrono>
+// See the file "COPYING" in the main distribution directory for copyright.
 
 #include "benchmark.h"
 
